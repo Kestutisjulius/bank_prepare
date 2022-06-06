@@ -1,0 +1,17 @@
+{
+    "name": "kestutis/bank",
+    "description": "Kestucio Bankas",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Bank\\": "src/app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Kęstutis Skrebė",
+            "email": "kestutis.julius@gmail.com"
+        }
+    ],
+    "require": {}
+}

@@ -1,0 +1,25 @@
+G:\xampp\apache\conf\extra\httpd-vhosts.conf -> edit
+--------EXAMPLE------------
+<VirtualHost *:80>
+    ServerAdmin webmaster@dummy-host2.example.com
+    DocumentRoot "G:\xampp\htdocs\bank_prepare\public"
+    ServerName kbankas.lt
+</VirtualHost>
+--------EXAMPLE------------
+---------------------------
+C:\Windows\System32\drivers\etc\hosts -> edit
+127.0.0.1 - kbankas.lt
+-------------------------------------------------------------------------------------------------
+npm init -y  on root folder...
+npm install laravel-mix
+create file webpack.mix.js on root folder...
+    with: {
+                let mix = require('laravel-mix');
+                 mix.js('src/js/app.js', 'public')
+                .sass('src/css/app.scss', 'public');
+          } txt
+npx mix -> transpiling code to public folder
+npx mix watch -> auto transpiling
+-----------------------------------------------------------------------------------------------
+composer init //inicijuoja composer.json
+composer dump-autoload //atnaujina pakeitimus
