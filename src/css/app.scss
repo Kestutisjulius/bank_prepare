@@ -4,3 +4,21 @@ h1{
     font-size: 50px;
   }
 }
+.success {
+  position: fixed;
+  left: 50%;
+  padding: 5px;
+  background-color: forestgreen;
+  border: 1px solid black;
+  transform: translatex(-50%);
+  z-index: -1;
+}
+.alert {
+  position: fixed;
+  left: 50%;
+  padding: 5px;
+  background-color: crimson;
+  border: 1px solid black;
+  transform: translatex(50%);
+  z-index: -1;
+}

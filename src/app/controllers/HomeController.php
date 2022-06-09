@@ -1,7 +1,9 @@
 <?php
 namespace Bank\Controllers;
 use Bank\App;
-    class HomeController{
+use Bank\Messages;
+
+class HomeController{
         public function index(){
             $list = [];
             for ($i = 0; $i < 3; $i++){
@@ -10,9 +12,11 @@ use Bank\App;
            return App::view('home', ['title' => 'ALABAMA', 'list' => $list]);
         }
         public function form(){
-            return App::view('form');
+            return App::view('form', ['messages'=> Messages::get()]);
         }
         public function doForm(){
+            Messages::add('Puiku', 'success');
+            Messages::add($_POST['alabama'], 'alert');
             return App::redirect('forma');
         }
     }
