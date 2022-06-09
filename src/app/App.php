@@ -31,6 +31,9 @@ class App
         //--LOGIN--//
 
         if ('GET' == $method && count($url) == 1 && $url[0] === 'login'){
+            if (self::auth()){
+                return self::redirect('login');
+            }
             return (new LoginController())->loginShow();
         }
         if ('POST' == $method && count($url) == 1 && $url[0] === 'login'){
@@ -76,6 +79,9 @@ class App
     public static function redirect($url = ''){
         header('Location: http://'.self::DOMAIN.'/'.$url);
     }
+    public static function url($url = ''){
+        return 'http://'.self::DOMAIN.'/'.$url;
+    }
 
     //--AUTHORITY--//
 
@@ -83,10 +89,16 @@ class App
         $_SESSION['auth'] = 1;
         $_SESSION['user'] = $user;
     }
-    public static function authRem(object $user){
+    public static function authRem(){
         unset($_SESSION['auth'], $_SESSION['user']);
     }
     public static function auth() : bool{
         return isset($_SESSION['auth']) && $_SESSION['auth'] == 1;
+    }
+    public static function authName() : string{
+        return $_SESSION['user']->full_name;
+    }
+    public static function csrf(){
+        return md5('jdgs75gsjbhag'.$_SERVER['HTTP_USER_AGENT']);
     }
 }

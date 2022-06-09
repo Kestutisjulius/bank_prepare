@@ -22,6 +22,10 @@ class HomeController{
             return App::view('form', ['messages'=> Messages::get()]);
         }
         public function doForm(){
+            if (($_POST['csrf'] ?? '') != App::csrf()){
+                Messages::add('Wrong Code', 'alert');
+                return App::redirect('forma');
+            }
             Messages::add('Puiku', 'success');
             Messages::add($_POST['alabama'], 'alert');
             return App::redirect('forma');
