@@ -23,6 +23,7 @@ npx mix watch -> auto transpiling
 -----------------------------------------------------------------------------------------------
 composer init //inicijuoja composer.json
 composer dump-autoload //atnaujina pakeitimus
+
 npx mix watch //anaujina pakeitimus
 --------------------------------------------------------------------------------------------
 atnaujinti css // network - disable cash

@@ -5,14 +5,23 @@ use Bank\Messages;
 class App
 {
     const DOMAIN = 'kbankas.lt';
+    private static $html;
 
     public static function start(){
         session_start();
         Messages::init();
+        ob_start(); //kibiras
         $url = explode('/', $_SERVER['REQUEST_URI']);
         array_shift($url);
         self::route($url);
+        self::$html = ob_get_contents();
+        ob_end_clean();
     }
+
+    public static function sent(){
+        echo self::$html;
+    }
+
     private static function route(array $url){
 
         $method = $_SERVER['REQUEST_METHOD']; //get or post
