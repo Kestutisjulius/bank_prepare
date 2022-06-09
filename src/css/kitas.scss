@@ -1,0 +1,15 @@
+h2{
+  color: aquamarine;
+}
+h3{
+  color: blueviolet;
+}
+.home{
+  color: brown;
+  &__bin{
+    color: cornflowerblue;
+    &__content{
+      color: darksalmon;
+    }
+  }
+}

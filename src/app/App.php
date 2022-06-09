@@ -32,6 +32,12 @@ class App
         if ('GET' == $method && count($url) == 1 && $url[0] === 'forma'){
             return (new HomeController())->form();
         }
+        if ('GET' == $method && count($url) == 1 && $url[0] === 'json'){
+            return (new HomeController())->indexJSON();
+        }
+        if ('GET' == $method && count($url) == 2 && $url[0] === 'get-it'){
+            return (new HomeController())->getIt($url[1]);
+        }
         if ('POST' == $method && count($url) == 1 && $url[0] === 'forma'){
             return (new HomeController())->doForm();
         } else {
@@ -41,6 +47,10 @@ class App
     public static function view(string $name, array $data = []){
         extract($data);
       return require __DIR__.'./../views/'.$name.'.php';
+    }
+    public static function json(array $data = []){
+        header('Content-Type: application/json');
+        echo json_encode($data);
     }
     public static function redirect($url = ''){
         header('Location: http://'.self::DOMAIN.'/'.$url);

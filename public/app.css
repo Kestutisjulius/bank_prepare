@@ -24,3 +24,21 @@ h1 span {
   transform: translatex(50%);
   z-index: -1;
 }
+
+h2 {
+  color: aquamarine;
+}
+
+h3 {
+  color: blueviolet;
+}
+
+.home {
+  color: brown;
+}
+.home__bin {
+  color: cornflowerblue;
+}
+.home__bin__content {
+  color: darksalmon;
+}
